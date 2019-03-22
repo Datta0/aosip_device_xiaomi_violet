@@ -14,16 +14,16 @@ INITIAL_COPYRIGHT_YEAR=2018
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 AOSIP_ROOT="${MY_DIR}/../../.."
 
-HELPER="$AOSIP_ROOT"/vendor/aosip/build/tools/extract_utils.sh
-if [ ! -f "$HELPER" ]; then
+HELPER="${AOSIP_ROOT}/vendor/aosip/build/tools/extract_utils.sh"
+if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
 fi
-. "$HELPER"
+source "${HELPER}"
 
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${AOSIP_ROOT}"
@@ -31,7 +31,7 @@ setup_vendor "${DEVICE}" "${VENDOR}" "${AOSIP_ROOT}"
 # Copyright headers and guards
 write_headers
 
-write_makefiles "$MY_DIR"/proprietary-files.txt true
+write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Finish
 write_footers
