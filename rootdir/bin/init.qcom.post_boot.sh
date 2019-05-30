@@ -101,8 +101,7 @@ if [ $feature_id == 6 ]; then
 	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
 	echo 1017600000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
 	echo 3 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1016} > /sys/kernel/debug/aop_send_message
-	setprop vendor.sku_identified 1
+	echo 3 > /sys/class/kgsl/kgsl-3d0/min_pwrlevel
 elif [ $feature_id == 5 ]; then
 	echo "SKU Configured : SA6150"
 	echo 748800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
@@ -126,8 +125,7 @@ elif [ $feature_id == 5 ]; then
 	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
 	echo 1363200000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
 	echo 2 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1333} > /sys/kernel/debug/aop_send_message
-	setprop vendor.sku_identified 1
+	echo 2 > /sys/class/kgsl/kgsl-3d0/min_pwrlevel
 elif [ $feature_id == 4 || $feature_id == 3 ]; then
 	echo "SKU Configured : SA6155"
 	echo 748800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
@@ -151,33 +149,9 @@ elif [ $feature_id == 4 || $feature_id == 3 ]; then
 	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
 	echo 1363200000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
 	echo 0 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1555} > /sys/kernel/debug/aop_send_message
-	setprop vendor.sku_identified 1
+	echo 0 > /sys/class/kgsl/kgsl-3d0/min_pwrlevel
 else
 	echo "unknown feature_id value" $feature_id
-	echo 748800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-	echo 748800 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-	echo 748800 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
-	echo 748800 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
-	echo 748800 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-	echo 748800 > /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq
-	echo 1017600 > /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
-	echo 1017600 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq
-	echo 1593600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-	echo 1593600 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-	echo 1593600 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
-	echo 1593600 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
-	echo 1593600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-	echo 1593600 > /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq
-	echo 1900800 > /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq
-	echo 1900800 > /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq
-	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/min_freq
-	echo 1363200000 > /sys/class/devfreq/soc\:qcom,cpu0-cpu-l3-lat/max_freq
-	echo 940800000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/min_freq
-	echo 1363200000 > /sys/class/devfreq/soc\:qcom,cpu6-cpu-l3-lat/max_freq
-	echo 0 > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-	echo {class:ddr, res:fixed, val: 1555} > /sys/kernel/debug/aop_send_message
-        setprop vendor.sku_identified 1
 fi
 }
 
@@ -3143,6 +3117,8 @@ case "$target" in
       # Set Memory parameters
       configure_memory_parameters
 
+      # update frequencies
+      configure_sku_parameters
 
       # Enable bus-dcvs
       for device in /sys/devices/platform/soc
