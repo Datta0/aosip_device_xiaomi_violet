@@ -3088,10 +3088,6 @@ case "$target" in
 	sku_identified=0
       fi
 
-      # update frequencies
-      configure_sku_parameters
-      sku_identified=`getprop vendor.sku_identified`
-
       # Core control parameters on silver
       echo 0 0 0 0 1 1 > /sys/devices/system/cpu/cpu0/core_ctl/not_preferred
       echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
