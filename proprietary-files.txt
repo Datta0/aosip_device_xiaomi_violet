@@ -625,34 +625,24 @@ vendor/bin/dpmQmiMgr|6be9fc790b38b24d8c3312651cb1c1fc6094c4d9
 vendor/lib64/libdpmqmihal.so|54f7da0356c0da2ed4a18759df87f5d90da9020f
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|ee7d14d8054ab05266484ac9df8887b388593f47
 
-# DRM - from laurel_sprout-user 9 PKQ1.190416.001 V10.3.4.0.PFQMIXM release-keys
-vendor/bin/qseecomd|1138981a4509b946f0c8e936c494a19831e328e3
-vendor/lib/libdrmfs.so|57318d610e0918a13b532a4bdb335b361d2e6886
-vendor/lib/libdrmtime.so|97df336cc92202253198b8724d6456963b2fb05f
-vendor/lib/libGPreqcancel_svc.so|260243bb3dcb7cfab44bd91245deb8206c8d031e
-vendor/lib/libGPreqcancel.so|8d6ea19a86426eef12d625281ab78c93dd05ebf6
-vendor/lib/libqisl.so|7d06e13b79088556a503666bb5fe8e6873a70438
-vendor/lib/libQSEEComAPI.so|dc8ea264da14f4b40eb7dad948b1867464ea31f4
-vendor/lib/librpmb.so|5623b8055ac1462c68e9d62bd13d0ce66cbcf658
-vendor/lib/libsecureui_svcsock.so|33342506a3bf1f35cc4741a0714a8b2f2e5656b7
-vendor/lib/libsecureui.so|4a34395451a2a2532935da90d8a5c68eb83fb5f9
-vendor/lib/libSecureUILib.so|2b318c7eec3d9524f8dc0a3e144735b9aca0d582
-vendor/lib/libssd.so|d0616e4c50d1d80f97615a356c18f9316276e45c
-vendor/lib/libStDrvInt.so|3e8ee96a37a0501adc9cba959a428d3743422ada
-vendor/lib/libtzdrmgenprov.so|ae2ebc99663e9586261cd9c2e9ad8f28d3e05f58
-vendor/lib64/libdrmfs.so|51a45531db019c3cc8afa65099b4f56e380047de
-vendor/lib64/libdrmtime.so|927bf015b914f331f6eb10539d28690a9024bbe7
-vendor/lib64/libGPreqcancel_svc.so|f080d122e41802c851171e7511080c9f0e26db36
-vendor/lib64/libGPreqcancel.so|28236013217a581b4b8d3b6bfac26084894756ba
-vendor/lib64/libqisl.so|46278d326f075e18232212873edf0fe652c1204d
-vendor/lib64/libQSEEComAPI.so|8cb4b5c5f2b0ff0161a598714f7063b1bd239eff
-vendor/lib64/librpmb.so|48bc285080d7a8220f6e2599eef7ca41aa7b2aaf
-vendor/lib64/libsecureui_svcsock.so|de28f03938ddd873f9fadd3b0a87f48912be54b7
-vendor/lib64/libsecureui.so|388a2dcf4368d6f568a835d5b908c79cfc38158d
-vendor/lib64/libSecureUILib.so|44880d0eee2cf0ccfba494dd71273c7d7d602e9d
-vendor/lib64/libssd.so|53ec97da596eb15797506960f4e4336f848a971a
-vendor/lib64/libStDrvInt.so|2d9a1e682cb2c0325eb6656a692e695cd7209e75
-vendor/lib64/libtzdrmgenprov.so|12055efc646c8c080a1279113f8a2767b3b05931
+# DRM
+vendor/bin/qseecomd
+vendor/etc/gpfspath_oem_config.xml
+vendor/lib/libdrmfs.so
+vendor/lib/libQSEEComAPI.so
+vendor/lib64/libdrmfs.so
+vendor/lib64/libdrmtime.so
+vendor/lib64/libGPreqcancel_svc.so
+vendor/lib64/libGPreqcancel.so
+vendor/lib64/libqisl.so
+vendor/lib64/libQSEEComAPI.so
+vendor/lib64/librpmb.so
+vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/libsecureui.so
+vendor/lib64/libSecureUILib.so
+vendor/lib64/libssd.so
+vendor/lib64/libStDrvInt.so
+vendor/lib64/libtzdrmgenprov.so
 
 # DRM - Widevine - from laurel_sprout-user 9 PKQ1.190416.001 V10.3.4.0.PFQMIXM release-keys
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine|bb8773116e59075a53b0d1979add4386eb9b3254
