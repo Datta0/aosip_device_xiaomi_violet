@@ -342,6 +342,55 @@ on property:sys.display_hbm=3
 on property:sys.display_hbm=0
     write /sys/devices/platform/soc/soc:qcom,dsi-display/dsi_display_hbm 0
 
+#lcd feature nodes test end
+
+#add thermal tactics
+on  property:vendor.camera.boost.en=1
+    write /sys/class/thermal/thermal_message/sconfig 33
+on  property:vendor.camera.boost.en=0
+    write /sys/class/thermal/thermal_message/sconfig 12
+on  property:vendor.camera.boost.en=2
+    write /sys/class/thermal/thermal_message/sconfig 33
+
+#add 1080p@120fps video
+on  property:vendor.camera.hfr.en=1
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+	write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 6
+on  property:vendor.camera.hfr.en=0
+    write /dev/stune/foreground/schedtune.prefer_idle 0
+	write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
+
+#service sviswitch add begin
+service sviswitch /vendor/bin/sviswitch
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.svi.enable=on
+    start sviswitch
+
+on property:sys.svi.enable=off
+    start sviswitch
+#service sviswitch add end
+
+service checknv /system/bin/checknv
+     class late_start
+     user root
+     oneshot
+     #seclabel u:r:vendor_init:s0
+
+# zhanandong @ 20181129	Import QR feature from F7A.	Begin
+service nv_mac /vendor/bin/nv_mac
+	class late_start
+	user system
+	group system inet net_raw wifi
+	oneshot
+
+on property:sys.boot_completed=1
+	start nv_mac
+# End
+
 on property:sys.thermallct.isincall=1
     write /sys/class/power_supply/battery/device/thermalcall 1
 
