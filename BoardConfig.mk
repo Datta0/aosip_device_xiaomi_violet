@@ -52,7 +52,7 @@ TARGET_KERNEL_CONFIG := vendor/violet-perf_defconfig
 # Platform
 TARGET_BOARD_PLATFORM := sm6150
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno612
-
+BUILD_BROKEN_DUP_RULES := true
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
