@@ -20,8 +20,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-aosip
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    $(LOCAL_PATH)/overlay/packages/apps/Snap
 
 # NotchBar Killer
 PRODUCT_PACKAGES += \
@@ -139,8 +137,7 @@ PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
-    vendor.qti.hardware.camera.device@1.0.vendor \
-    Snap
+    vendor.qti.hardware.camera.device@1.0.vendor
 
 # Context Hub
 PRODUCT_PACKAGES += \
