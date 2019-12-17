@@ -1,4 +1,4 @@
-#
+ #
 # Copyright (C) 2019 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -15,7 +15,10 @@ $(call inherit-product, device/xiaomi/violet/device.mk)
 
 # Inherit some common AOSiP stuff.
 $(call inherit-product, vendor/aosip/config/common_full_phone.mk)
-
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_STOCK_ARCORE := true
+IS_PHONE:=true
+AOSIP_BUILDTYPE:=Official
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := aosip_violet
 PRODUCT_DEVICE := violet
